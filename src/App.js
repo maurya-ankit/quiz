@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { ThemeProvider } from '@material-ui/core/styles';
+import { theme, DarkTheme } from './theme';
+import NavBar from './components/navBar'
+import AutoGrid from './components/testing/quiz'
+import Container from '@material-ui/core/Container';
 function App() {
+
+  const [darkMode, setDarkMode] = React.useState(localStorage.getItem("theme") === "true" ? true : false);
+  localStorage.setItem("theme", darkMode)
+
+  // storing state value to localstorage so that theme of next visit will set accordingaly
+  //in localstorage items are stored in string formate : so when retrieving checking if "true" then setting to True otherwise if null or false then false
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={darkMode ? DarkTheme : theme}>
+
+        <NavBar themechange={setDarkMode} status={darkMode} />
+        <Container maxWidth="xl" >
+          <AutoGrid />
+        </Container>
+
+      </ThemeProvider>
+    </>
   );
 }
 
