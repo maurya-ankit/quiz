@@ -4,6 +4,7 @@ import { theme, DarkTheme } from './theme';
 import NavBar from './components/navBar'
 import AutoGrid from './components/testing/quiz'
 import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline'
 function App() {
 
   const [darkMode, setDarkMode] = React.useState(localStorage.getItem("theme") === "true" ? true : false);
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={darkMode ? DarkTheme : theme}>
+        <CssBaseline />
 
         <NavBar themechange={setDarkMode} status={darkMode} />
         <Container maxWidth="xl" >

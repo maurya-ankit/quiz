@@ -7,8 +7,7 @@ import Badge from '@material-ui/core/Badge';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import { data } from '../data'
 import Detail from './detail'
-import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton';
+
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -32,17 +31,21 @@ const useStyles = makeStyles((theme) => ({
 export default function AutoGrid() {
     const classes = useStyles();
     const [activeQuestion, setActiveQuestion] = React.useState(1);
-    const [bookmark, setBookmark] = React.useState({ 1: true, 2: false, 3: false, 4: true, 5: true });
+    const [bookmark, setBookmark] = React.useState(localStorage.getItem("bookmark") === null ? {} : JSON.parse(localStorage.getItem("bookmark")));
     const handleNext = () => {
         setActiveQuestion(activeQuestion < data.length ? activeQuestion + 1 : activeQuestion)
     }
     const handlePrevious = () => {
         setActiveQuestion(activeQuestion > 1 ? activeQuestion - 1 : activeQuestion)
     }
-    const handleBookmark = (active) => {
-        setBookmark({ ...bookmark, active: !bookmark[`${active}`] })
-        console.log(active)
+    const handleBookmark = (name) => {
+        setBookmark({ ...bookmark, [name]: bookmark[`${name}`] === true ? false : true })
     }
+
+    React.useEffect(() => {
+        localStorage.setItem("bookmark", JSON.stringify(bookmark));
+        console.log(bookmark)
+    }, [bookmark])
     return (
         <div className={classes.root}>
             <Grid container spacing={3}
@@ -57,50 +60,7 @@ export default function AutoGrid() {
                     <Paper
                         className={classes.paper}
                     >
-                        <Detail data={data[`${activeQuestion}` - 1]} />
-                        <Grid
-                            justify="space-between"
-                            container
-                            spacing={10}
-                        >
-                            <Grid item>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={handlePrevious}
-                                    disabled={activeQuestion === 1 ? true : false}
-                                >
-                                    previous
-                                </Button>
-                                <Button
-                                    // variant="contained"
-                                    color="primary"
-                                    onClick={handlePrevious}
-                                    disabled
-                                >
-                                    Clear
-                            </Button>
-                                <IconButton color="secondary" aria-label="bookmark-it"
-                                    onClick={() => handleBookmark(activeQuestion)}
-                                >
-                                    <BookmarkIcon />
-                                </IconButton>
-                            </Grid>
-
-                            <Grid item>
-                                <Button variant="contained" style={{ marginInline: 10 }} color="primary">
-                                    Save
-                            </Button>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={handleNext}
-                                    disabled={activeQuestion === data.length ? true : false}
-                                >
-                                    Next
-                            </Button>
-                            </Grid>
-                        </Grid>
+                        <Detail data={data[`${activeQuestion}` - 1]} handleNext={handleNext} handlePrevious={handlePrevious} handleBookmark={handleBookmark} length={data.length} id={activeQuestion} />
 
                     </Paper>
                 </Grid>

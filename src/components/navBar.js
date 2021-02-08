@@ -141,8 +141,8 @@ export default function NavBar({ status, themechange }) {
                             checked={status}
                             onChange={() => themechange(!status)}
                             color="default"
-                            name="checkedB"
-                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                            name="theme-changer"
+                        // inputProps={{ 'aria-label': 'primary checkbox' }}
                         />
                         <IconButton aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="secondary">

@@ -31,7 +31,7 @@ export const data = [
     },
     {
         "id": 2,
-        "type": "multi-correct",
+        "type": "single-correct",
         "question": {
             "question_text": "Select all Fruits from below",
             "question_Img-url": "#"
@@ -66,7 +66,7 @@ export const data = [
     },
     {
         "id": 4,
-        "type": "file-upload",
+        "type": "para",
         "question": {
             "question_text": "Write answers on notebook and upload that here",
             "question_Img_url": "#"
@@ -75,7 +75,7 @@ export const data = [
     },
     {
         "id": 5,
-        "type": "multi-correct",
+        "type": "single-correct",
         "question": {
             "question_text": "Select all Fruits from below",
             "question_Img-url": "#"
@@ -95,6 +95,36 @@ export const data = [
             },
             {
                 "option_text": "Apple",
+                "option_img_url": "#"
+            },
+        ]
+    },
+    {
+        "id": 6,
+        "type": "single-correct",
+        "question": {
+            "question_text": "Which of the following procedures can be used to compare the means of the included groups in a dummy-variable regression model?",
+            "question-Img-url": "#"
+        },
+        "answer": [
+            {
+                "id": "1",
+                "option_text": "Changing the reference group",
+                "option_img_url": "#"
+            },
+            {
+                "id": "2",
+                "option_text": "Linear combination",
+                "option-img-url": "#"
+            },
+            {
+                "id": "3",
+                "option_text": "Standardization ",
+                "option-img-url": "#"
+            },
+            {
+                "id": "4",
+                "option_text": "Not possible",
                 "option_img_url": "#"
             },
         ]

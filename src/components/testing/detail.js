@@ -10,29 +10,30 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
-import FormGroup from '@material-ui/core/FormGroup';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormHelperText from '@material-ui/core/FormHelperText';
+import IconButton from '@material-ui/core/IconButton';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 const AnsComponent = (props) => {
     const answer = props.data.answer;
     const type = props.data.type;
-    const [value, setValue] = React.useState('');
-    const [state, setState] = React.useState({
-        gilad: true,
-        jason: false,
-        antoine: false,
-    });
+    const id = props.data.id;
+    const { ans, setAns } = props;
+    // const [multiAns, setMultiAns] = React.useState({});
 
+    React.useEffect(() => {
+        localStorage.setItem("answer", JSON.stringify(ans))
+    }, [ans])
+    // React.useEffect(() => {
+    //     setAns({ ...ans, [id]: multiAns })
+    // }, [])
     if (type === "single-correct") {
-
         const handleChange = (event) => {
-            setValue(event.target.value);
+            setAns({ ...ans, [props.data.id]: event.target.value })
+            // setAns(event.target.value);
         };
-        return <React.Fragment>
-
+        return <React.Fragment key={id}>
             <FormControl component="fieldset">
-                <RadioGroup aria-label="sigle-correct-option" name="option" value={value} onChange={handleChange}>
+                <RadioGroup aria-label="sigle-correct-option" name="option" value={ans[id] || "-1"} onChange={handleChange}>
                     {answer.map((option, index) => (
                         <FormControlLabel key={index} value={option.option_text} control={<Radio />} label={option.option_text} />
                     ))}
@@ -40,35 +41,42 @@ const AnsComponent = (props) => {
             </FormControl>
         </React.Fragment>
     }
-    else if (type === "multi-correct") {
-        const handleChange = (event) => {
-            setState({ ...state, [event.target.name]: event.target.checked });
-        };
-        const { gilad } = state;
-        return <React.Fragment>
-            <FormControl component="fieldset" >
-                <FormGroup>
+    // else if (type === "multi-correct") {
+    //     const handleChange = (event) => {
+    //         setMultiAns({ ...multiAns, [event.target.name]: event.target.checked });
+    //     };
+    //     // const { gilad } = state;
+    //     return <React.Fragment>
+    //         <FormControl component="fieldset" >
+    //             <FormGroup>
 
-                    {answer.map((option, index) => (
-                        <FormControlLabel key={index}
-                            control={<Checkbox checked={gilad} onChange={handleChange} name="gilad" />}
-                            label={option.option_text}
-                        />
-                    ))}
-                </FormGroup>
-                <FormHelperText>! More than one correct</FormHelperText>
-            </FormControl>
-        </React.Fragment>
-    }
+    //                 {answer.map((option, index) => (
+    //                     <FormControlLabel key={index}
+    //                         control={<Checkbox checked={multiAns[option.option_text] === true ? true : false} onChange={handleChange} name={option.option_text} />}
+    //                         label={option.option_text}
+    //                     />
+    //                 ))}
+    //             </FormGroup>
+    //             <FormHelperText>! More than one correct</FormHelperText>
+    //         </FormControl>
+    //     </React.Fragment>
+    // }
     else if (type === "para") {
-        return <React.Fragment>
+        const handlePara = (e) => {
+            setAns({ ...ans, [id]: e.target.value })
+
+        }
+        return <React.Fragment key={id}>
             <TextField
                 id="outlined-multiline-static"
                 // label="Multiline"
                 multiline
                 style={{ width: "100%" }}
+
+                defaultValue={ans[id]}
                 // defaultValue="Default Value"
                 variant="outlined"
+                onChange={handlePara}
             />
         </React.Fragment>
 
@@ -91,7 +99,27 @@ const AnsComponent = (props) => {
 
 
 const Detail = (props) => {
-    const data = props.data;
+    const { data, handleNext, handlePrevious, handleBookmark, length } = props;
+    const [ans, setAns] = React.useState(localStorage.getItem("answer") === null ? {} : JSON.parse(localStorage.getItem("answer")));
+
+
+    const handleSave = (ans) => {
+        localStorage.setItem(data.id, ans)
+    }
+    const handleClear = () => {
+
+        console.log(ans)
+
+
+        console.log(delete ans[data.id])
+        console.log(ans)
+        localStorage.removeItem("answer");
+        localStorage.setItem("answer", JSON.stringify(ans));
+    }
+
+    React.useEffect(() => {
+
+    }, [ans])
     return (
         <>
             <Grid container spacing={1}
@@ -108,8 +136,50 @@ const Detail = (props) => {
                     </Typography>
                     <Divider style={{ marginTop: 20, marginBottom: 20 }} />
 
-                    <AnsComponent data={data} />
+                    <AnsComponent data={data} handleSave={handleSave} ans={ans} setAns={setAns} />
                 </Grid>
+                <Grid
+                    justify="space-between"
+                    container
+                    spacing={10}
+                >
+                    <Grid item>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={handlePrevious}
+                            disabled={data.id === 1 ? true : false}
+                        >
+                            previous
+                                </Button>
+                        <Button
+                            onClick={handleClear}
+                            disabled={ans[data.id] ? false : true}
+                        >
+                            Clear
+                            </Button>
+                        <IconButton color="secondary" aria-label="bookmark-it"
+                            onClick={() => handleBookmark(data.id)}
+                        >
+                            <BookmarkIcon />
+                        </IconButton>
+                    </Grid>
+
+                    <Grid item>
+                        <Button variant="contained" style={{ marginInline: 10 }} color="primary">
+                            Save
+                            </Button>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={handleNext}
+                            disabled={data.id === length ? true : false}
+                        >
+                            Next
+                            </Button>
+                    </Grid>
+                </Grid>
+
             </Grid>
 
         </>
