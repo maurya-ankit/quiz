@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/maurya-ankit/quiz/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/maurya-ankit/quiz/static/js/main.bbdbf1e4.chunk.js",
-    "main.js.map": "/maurya-ankit/quiz/static/js/main.bbdbf1e4.chunk.js.map",
-    "runtime-main.js": "/maurya-ankit/quiz/static/js/runtime-main.ec9ff700.js",
-    "runtime-main.js.map": "/maurya-ankit/quiz/static/js/runtime-main.ec9ff700.js.map",
-    "static/js/2.bb665560.chunk.js": "/maurya-ankit/quiz/static/js/2.bb665560.chunk.js",
-    "static/js/2.bb665560.chunk.js.map": "/maurya-ankit/quiz/static/js/2.bb665560.chunk.js.map",
-    "static/js/3.1b64bbe8.chunk.js": "/maurya-ankit/quiz/static/js/3.1b64bbe8.chunk.js",
-    "static/js/3.1b64bbe8.chunk.js.map": "/maurya-ankit/quiz/static/js/3.1b64bbe8.chunk.js.map",
-    "index.html": "/maurya-ankit/quiz/index.html",
-    "service-worker.js": "/maurya-ankit/quiz/service-worker.js",
-    "service-worker.js.map": "/maurya-ankit/quiz/service-worker.js.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/maurya-ankit/quiz/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.bb665560.chunk.js.LICENSE.txt": "/maurya-ankit/quiz/static/js/2.bb665560.chunk.js.LICENSE.txt"
+    "main.css": "/quiz/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/quiz/static/js/main.02785cf3.chunk.js",
+    "main.js.map": "/quiz/static/js/main.02785cf3.chunk.js.map",
+    "runtime-main.js": "/quiz/static/js/runtime-main.5f36b0c8.js",
+    "runtime-main.js.map": "/quiz/static/js/runtime-main.5f36b0c8.js.map",
+    "static/js/2.bb665560.chunk.js": "/quiz/static/js/2.bb665560.chunk.js",
+    "static/js/2.bb665560.chunk.js.map": "/quiz/static/js/2.bb665560.chunk.js.map",
+    "static/js/3.1b64bbe8.chunk.js": "/quiz/static/js/3.1b64bbe8.chunk.js",
+    "static/js/3.1b64bbe8.chunk.js.map": "/quiz/static/js/3.1b64bbe8.chunk.js.map",
+    "index.html": "/quiz/index.html",
+    "service-worker.js": "/quiz/service-worker.js",
+    "service-worker.js.map": "/quiz/service-worker.js.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/quiz/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.bb665560.chunk.js.LICENSE.txt": "/quiz/static/js/2.bb665560.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ec9ff700.js",
+    "static/js/runtime-main.5f36b0c8.js",
     "static/js/2.bb665560.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.bbdbf1e4.chunk.js"
+    "static/js/main.02785cf3.chunk.js"
   ]
 }
