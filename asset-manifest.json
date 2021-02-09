@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/static/js/main.19d4fc8f.chunk.js",
-    "main.js.map": "/static/js/main.19d4fc8f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.05e405f5.js",
-    "runtime-main.js.map": "/static/js/runtime-main.05e405f5.js.map",
-    "static/js/2.e756ebca.chunk.js": "/static/js/2.e756ebca.chunk.js",
-    "static/js/2.e756ebca.chunk.js.map": "/static/js/2.e756ebca.chunk.js.map",
-    "static/js/3.82c433dd.chunk.js": "/static/js/3.82c433dd.chunk.js",
-    "static/js/3.82c433dd.chunk.js.map": "/static/js/3.82c433dd.chunk.js.map",
-    "index.html": "/index.html",
-    "service-worker.js": "/service-worker.js",
-    "service-worker.js.map": "/service-worker.js.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.e756ebca.chunk.js.LICENSE.txt": "/static/js/2.e756ebca.chunk.js.LICENSE.txt",
-    "static/media/404.4861ae77.svg": "/static/media/404.4861ae77.svg"
+    "main.css": "/quiz/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/quiz/static/js/main.c478bb26.chunk.js",
+    "main.js.map": "/quiz/static/js/main.c478bb26.chunk.js.map",
+    "runtime-main.js": "/quiz/static/js/runtime-main.35c4b5f2.js",
+    "runtime-main.js.map": "/quiz/static/js/runtime-main.35c4b5f2.js.map",
+    "static/js/2.e756ebca.chunk.js": "/quiz/static/js/2.e756ebca.chunk.js",
+    "static/js/2.e756ebca.chunk.js.map": "/quiz/static/js/2.e756ebca.chunk.js.map",
+    "static/js/3.82c433dd.chunk.js": "/quiz/static/js/3.82c433dd.chunk.js",
+    "static/js/3.82c433dd.chunk.js.map": "/quiz/static/js/3.82c433dd.chunk.js.map",
+    "index.html": "/quiz/index.html",
+    "service-worker.js": "/quiz/service-worker.js",
+    "service-worker.js.map": "/quiz/service-worker.js.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/quiz/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.e756ebca.chunk.js.LICENSE.txt": "/quiz/static/js/2.e756ebca.chunk.js.LICENSE.txt",
+    "static/media/404.4861ae77.svg": "/quiz/static/media/404.4861ae77.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.05e405f5.js",
+    "static/js/runtime-main.35c4b5f2.js",
     "static/js/2.e756ebca.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.19d4fc8f.chunk.js"
+    "static/js/main.c478bb26.chunk.js"
   ]
 }
