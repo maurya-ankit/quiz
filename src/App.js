@@ -5,6 +5,11 @@ import NavBar from './components/navBar'
 import AutoGrid from './components/testing/quiz'
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline'
+import Waitroom from './components/waiting/waitroom';
+import { HashRouter, Route, Switch } from 'react-router-dom'
+import Error404 from './components/error/404';
+import Quiz from './components/create/quiz';
+
 function App() {
 
   const [darkMode, setDarkMode] = React.useState(localStorage.getItem("theme") === "true" ? true : false);
@@ -19,7 +24,22 @@ function App() {
 
         <NavBar themechange={setDarkMode} status={darkMode} />
         <Container maxWidth="xl" >
-          <AutoGrid />
+          <HashRouter basename="/">
+            <Switch>
+              <Route path="/" exact>
+                <Waitroom />
+              </Route>
+              <Route path="/quiz">
+                <AutoGrid />
+              </Route>
+              <Route path="/add">
+                <Quiz />
+              </Route>
+              <Route path="*">
+                <Error404 />
+              </Route>
+            </Switch>
+          </HashRouter>
         </Container>
 
       </ThemeProvider>

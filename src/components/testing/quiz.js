@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AutoGrid() {
     const classes = useStyles();
     const [activeQuestion, setActiveQuestion] = React.useState(1);
-    const [bookmark, setBookmark] = React.useState(localStorage.getItem("bookmark") === null ? {} : JSON.parse(localStorage.getItem("bookmark")));
+    const [bookmark, setBookmark] = React.useState(sessionStorage.getItem("bookmark") === null ? {} : JSON.parse(sessionStorage.getItem("bookmark")));
     const handleNext = () => {
         setActiveQuestion(activeQuestion < data.length ? activeQuestion + 1 : activeQuestion)
     }
@@ -43,8 +43,7 @@ export default function AutoGrid() {
     }
 
     React.useEffect(() => {
-        localStorage.setItem("bookmark", JSON.stringify(bookmark));
-        console.log(bookmark)
+        sessionStorage.setItem("bookmark", JSON.stringify(bookmark));
     }, [bookmark])
     return (
         <div className={classes.root}>
@@ -65,7 +64,7 @@ export default function AutoGrid() {
                     </Paper>
                 </Grid>
                 <Grid item md={3} xs>
-                    <Paper className={classes.paper}>
+                    <Paper className={classes.paper} >
                         {data.map((question) => (
                             <Fab color={question.id === activeQuestion ? "secondary" : "primary"}
                                 size="small"

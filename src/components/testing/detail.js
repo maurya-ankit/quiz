@@ -21,7 +21,7 @@ const AnsComponent = (props) => {
     // const [multiAns, setMultiAns] = React.useState({});
 
     React.useEffect(() => {
-        localStorage.setItem("answer", JSON.stringify(ans))
+        sessionStorage.setItem("answer", JSON.stringify(ans))
     }, [ans])
     // React.useEffect(() => {
     //     setAns({ ...ans, [id]: multiAns })
@@ -100,21 +100,21 @@ const AnsComponent = (props) => {
 
 const Detail = (props) => {
     const { data, handleNext, handlePrevious, handleBookmark, length } = props;
-    const [ans, setAns] = React.useState(localStorage.getItem("answer") === null ? {} : JSON.parse(localStorage.getItem("answer")));
+    const [ans, setAns] = React.useState(sessionStorage.getItem("answer") === null ? {} : JSON.parse(sessionStorage.getItem("answer")));
 
 
     const handleSave = (ans) => {
-        localStorage.setItem(data.id, ans)
+        sessionStorage.setItem(data.id, ans)
     }
     const handleClear = () => {
 
-        console.log(ans)
 
 
-        console.log(delete ans[data.id])
-        console.log(ans)
-        localStorage.removeItem("answer");
-        localStorage.setItem("answer", JSON.stringify(ans));
+
+        delete ans[data.id]
+
+        sessionStorage.removeItem("answer");
+        sessionStorage.setItem("answer", JSON.stringify(ans));
     }
 
     React.useEffect(() => {

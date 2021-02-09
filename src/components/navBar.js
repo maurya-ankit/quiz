@@ -134,7 +134,7 @@ export default function NavBar({ status, themechange }) {
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
                         Quiz App
-          </Typography>
+                    </Typography>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <Switch
